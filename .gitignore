@@ -6,3 +6,10 @@ dist/
 vibe_images/
 .DS_Store
 *.log
+
+# 安装包与构建产物（仓库只保留源码）
+*.dmg
+*.exe
+*.msi
+*.pkg
+*.blockmap
