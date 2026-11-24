@@ -1,0 +1,76 @@
+{
+  "name": "taskdrop",
+  "version": "0.1.0",
+  "description": "局域网任务投递：把任务拖到同事设备上",
+  "main": "./out/main/index.js",
+  "author": "tianyi",
+  "license": "MIT",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SwingQui/DTask.git"
+  },
+  "scripts": {
+    "dev": "electron-vite dev",
+    "build": "electron-vite build",
+    "typecheck": "tsc --noEmit",
+    "preview": "electron-vite preview",
+    "e2e": "npm run build && node scripts/e2e.mjs",
+    "e2e:manual": "npm run build && node scripts/e2e-manual.mjs",
+    "icon": "node scripts/make-icon.mjs",
+    "dist:mac": "npm run build && electron-builder --mac dmg",
+    "dist:win": "npm run build && electron-builder --win nsis"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.3.0",
+    "electron": "^45.4.1",
+    "electron-builder": "^26.18.0",
+    "electron-vite": "^6.0.0",
+    "playwright": "^1.65.1",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.8"
+  },
+  "build": {
+    "appId": "com.taskdrop.app",
+    "productName": "TaskDrop",
+    "directories": {
+      "output": "dist",
+      "buildResources": "build"
+    },
+    "files": [
+      "out/**/*",
+      "package.json"
+    ],
+    "asar": true,
+    "npmRebuild": false,
+    "mac": {
+      "category": "public.app-category.productivity",
+      "target": [
+        "dmg"
+      ],
+      "icon": "build/icon.png",
+      "identity": null
+    },
+    "dmg": {
+      "title": "TaskDrop ${version}"
+    },
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "icon": "build/icon.png"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "shortcutName": "TaskDrop"
+    }
+  }
+}

@@ -1,0 +1,8 @@
+node_modules/
+out/
+dist/
+.tools/
+.artifacts/
+vibe_images/
+.DS_Store
+*.log
