@@ -1,4 +1,4 @@
-import { app, BrowserWindow, dialog, ipcMain, Notification, shell } from 'electron'
+import { app, BrowserWindow, dialog, ipcMain, nativeTheme, Notification, shell } from 'electron'
 import path from 'node:path'
 import fs from 'node:fs'
 import { Store } from './store'
@@ -15,6 +15,7 @@ const dataDir = process.env.TASKPUSH_DATA_DIR
 
 app.setPath('userData', dataDir)
 app.setName('TaskDrop')
+nativeTheme.themeSource = 'dark'
 if (process.platform === 'win32') app.setAppUserModelId('com.taskdrop.app')
 
 if (!process.env.TASKPUSH_ALLOW_MULTI) {
@@ -213,7 +214,7 @@ function createWindow(): void {
     height: 820,
     minWidth: 1000,
     minHeight: 640,
-    backgroundColor: '#f4f5f7',
+    backgroundColor: '#1b1b1b',
     title: 'TaskDrop',
     show: false,
     webPreferences: {

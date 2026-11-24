@@ -20,33 +20,13 @@
   <body>
     <svg width="1024" height="1024" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
       <defs>
-        <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stop-color="#5D6EF3" />
-          <stop offset="0.55" stop-color="#6555EC" />
-          <stop offset="1" stop-color="#7B3FE4" />
-        </linearGradient>
-        <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
-          <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.42" />
-          <stop offset="1" stop-color="#FFFFFF" stop-opacity="0" />
-        </radialGradient>
-        <linearGradient id="trayFace" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stop-color="#FFFFFF" />
-          <stop offset="1" stop-color="#E4E8FA" />
-        </linearGradient>
-        <filter id="cardShadow" x="-60%" y="-60%" width="220%" height="240%">
-          <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#1B1F2A" flood-opacity="0.28" />
-        </filter>
-        <filter id="trayShadow" x="-40%" y="-40%" width="180%" height="200%">
-          <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#1B1F2A" flood-opacity="0.22" />
-        </filter>
         <clipPath id="squircle">
           <rect x="64" y="64" width="896" height="896" rx="212" />
         </clipPath>
       </defs>
 
       <g clip-path="url(#squircle)">
-        <rect x="64" y="64" width="896" height="896" fill="url(#bg)" />
-        <ellipse cx="300" cy="230" rx="430" ry="330" fill="url(#glow)" />
+        <rect x="64" y="64" width="896" height="896" fill="#202020" />
       </g>
       <rect
         x="65"
@@ -55,48 +35,46 @@
         height="894"
         rx="211"
         fill="none"
-        stroke="#FFFFFF"
-        stroke-opacity="0.16"
+        stroke="#3a3a3a"
         stroke-width="2"
       />
 
       <!-- paper plane -->
       <g>
-        <path d="M 300 470 L 748 232 L 560 620 Z" fill="#FFFFFF" />
-        <path d="M 300 470 L 560 620 L 500 520 Z" fill="#FFFFFF" opacity="0.78" />
-        <path d="M 500 520 L 560 620 L 594 566 Z" fill="#FFFFFF" opacity="0.5" />
+        <path d="M 300 470 L 748 232 L 560 620 Z" fill="#F2F2F2" />
+        <path d="M 300 470 L 560 620 L 500 520 Z" fill="#C9C9C9" />
+        <path d="M 500 520 L 560 620 L 594 566 Z" fill="#ABABAB" />
         <path
           d="M 748 232 L 560 620"
           fill="none"
-          stroke="#DCE2F5"
+          stroke="#BDBDBD"
           stroke-width="6"
           stroke-linecap="round"
-          opacity="0.7"
         />
       </g>
 
       <!-- falling task card -->
-      <g transform="translate(466 690) rotate(-15)" filter="url(#cardShadow)">
-        <rect x="-80" y="-54" width="160" height="108" rx="16" fill="#FFFFFF" />
-        <rect x="-52" y="-24" width="86" height="10" rx="5" fill="#CBD3EA" />
-        <rect x="-52" y="0" width="62" height="10" rx="5" fill="#D9DFF0" />
-        <rect x="-52" y="24" width="74" height="10" rx="5" fill="#D9DFF0" />
+      <g transform="translate(466 690) rotate(-15)">
+        <rect x="-80" y="-54" width="160" height="108" rx="16" fill="#F2F2F2" />
+        <rect x="-52" y="-24" width="86" height="10" rx="5" fill="#BDBDBD" />
+        <rect x="-52" y="0" width="62" height="10" rx="5" fill="#C9C9C9" />
+        <rect x="-52" y="24" width="74" height="10" rx="5" fill="#C9C9C9" />
       </g>
 
       <!-- tray -->
-      <g filter="url(#trayShadow)">
+      <g>
         <path
           d="M 296 800 Q 512 848 728 800 L 672 908 Q 664 924 646 924 L 378 924 Q 360 924 352 908 Z"
-          fill="url(#trayFace)"
+          fill="#6FE07C"
         />
-        <path d="M 296 800 Q 512 848 728 800 Q 512 816 296 800 Z" fill="#2A2F6B" opacity="0.32" />
+        <path d="M 296 800 Q 512 848 728 800 Q 512 816 296 800 Z" fill="#15351C" />
         <path
           d="M 376 872 Q 512 896 648 872"
           fill="none"
-          stroke="#C9D0E8"
+          stroke="#2F8A3F"
           stroke-width="6"
           stroke-linecap="round"
-          opacity="0.5"
+          opacity="0.75"
         />
       </g>
     </svg>
