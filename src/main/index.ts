@@ -15,7 +15,7 @@ const dataDir = process.env.TASKPUSH_DATA_DIR
 
 app.setPath('userData', dataDir)
 app.setName('TaskDrop')
-nativeTheme.themeSource = 'dark'
+nativeTheme.themeSource = 'light'
 if (process.platform === 'win32') app.setAppUserModelId('com.taskdrop.app')
 
 if (!process.env.TASKPUSH_ALLOW_MULTI) {
@@ -214,7 +214,7 @@ function createWindow(): void {
     height: 820,
     minWidth: 1000,
     minHeight: 640,
-    backgroundColor: '#1b1b1b',
+    backgroundColor: '#f7f7f5',
     title: 'TaskDrop',
     show: false,
     webPreferences: {
