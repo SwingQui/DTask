@@ -138,7 +138,7 @@ export function Sidebar(props: SidebarProps) {
       <div className="brand">
         <div className="brand-mark">TD</div>
         <div className="brand-text">
-          <h1>TaskDrop</h1>
+          <h1>DTask</h1>
           <p>局域网任务投递</p>
         </div>
       </div>
@@ -222,7 +222,7 @@ export function Sidebar(props: SidebarProps) {
                 if (!device.online) return
                 e.preventDefault()
                 props.onDragOverDevice(null)
-                const taskId = e.dataTransfer.getData('text/taskdrop') || e.dataTransfer.getData('text/plain')
+                const taskId = e.dataTransfer.getData('text/dtask') || e.dataTransfer.getData('text/plain')
                 if (taskId) props.onDropTask(taskId, device.id)
               }}
             >
@@ -528,7 +528,7 @@ export function DraftTray(props: DraftTrayProps) {
               key={task.id}
               draggable
               onDragStart={(e) => {
-                e.dataTransfer.setData('text/taskdrop', task.id)
+                e.dataTransfer.setData('text/dtask', task.id)
                 e.dataTransfer.setData('text/plain', task.id)
                 e.dataTransfer.effectAllowed = 'move'
                 props.onDragStart(task)

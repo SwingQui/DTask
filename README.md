@@ -1,10 +1,10 @@
-# TaskDrop
+# DTask
 
 局域网里的“任务空投”：写好一条任务，直接拖到左侧同事的电脑上，任务就落到对方机器里。不需要服务器、不需要账号、不经过云端。
 
 仓库：<https://github.com/SwingQui/DTask>
 
-![TaskDrop 界面](docs/screenshot.png)
+![DTask 界面](docs/screenshot.png)
 
 ## 已实现
 
@@ -25,7 +25,7 @@
 
 ## 快速开始
 
-项目内已经带了本地 Node（`.tools/node`），不需要改系统环境。
+仓库只含源码，开发需要 Node 22+。当前这台开发机把 Node 放在 `.tools/node`（不上传仓库），`scripts/dev.sh` 会优先使用它；换机器时先装 Node 22+ 即可。
 
 ```bash
 ./scripts/dev.sh          # 开发模式启动
@@ -34,8 +34,8 @@
 
 打包产物在 `dist/`：
 
-- `TaskDrop-0.1.0-arm64.dmg`（Apple Silicon Mac）
-- `TaskDrop Setup 0.1.0.exe`（Windows x64，已在 macOS 上交叉打包成功，但未在 Windows 实机运行过）
+- `DTask-0.1.0-arm64.dmg`（Apple Silicon Mac）
+- `DTask Setup 0.1.0.exe`（Windows x64，已在 macOS 上交叉打包成功，但未在 Windows 实机运行过）
 
 Intel Mac 需要单独出一份：
 
@@ -52,7 +52,7 @@ npm run dist:win
 macOS 安装包未签名，首次打开请右键 → 打开，或：
 
 ```bash
-xattr -dr com.apple.quarantine /Applications/TaskDrop.app
+xattr -dr com.apple.quarantine /Applications/DTask.app
 ```
 
 Windows 安装包同样未签名，首次运行会遇到 SmartScreen 提示，选择「更多信息 → 仍要运行」。
@@ -62,7 +62,7 @@ Windows 安装包同样未签名，首次运行会遇到 SmartScreen 提示，�
 ## 两台电脑第一次怎么用
 
 1. 两台电脑连同一个 Wi-Fi / 交换机，处于同一网段。
-2. 各自打开 TaskDrop。
+2. 各自打开 DTask。
    - macOS 首次会弹「本地网络」权限，必须允许。
    - Windows 首次会弹防火墙，勾选「专用网络」。
 3. 左侧「同事设备」里出现对方，说明通了。
@@ -78,14 +78,14 @@ Windows 安装包同样未签名，首次运行会遇到 SmartScreen 提示，�
 
 ## 数据存在哪
 
-- macOS：`~/Library/Application Support/TaskDrop`
-- Windows：`%APPDATA%\TaskDrop`
+- macOS：`~/Library/Application Support/DTask`
+- Windows：`%APPDATA%\DTask`
 
 里面有 `data.json`（设备、任务）和 `attachments/`（附件副本），其余是 Electron 的缓存目录，可以忽略。左下角「数据目录」可直接打开。退出软件后删掉整个目录即可清空。
 
 ## 已知限制
 
-- **没有鉴权与加密**：同一局域网里任何装了 TaskDrop 的电脑都能看到设备并投递任务。只适合可信的办公内网，不要在公共 Wi-Fi 使用。
+- **没有鉴权与加密**：同一局域网里任何装了 DTask 的电脑都能看到设备并投递任务。只适合可信的办公内网，不要在公共 Wi-Fi 使用。
 - **依赖同一子网**：路由器开启 AP 隔离/客户端隔离时，自动发现会失效，手动 IP 也可能连不上。
 - **状态冲突按更新时间覆盖**：两端系统时钟差太多时，可能以旧盖新。
 - **附件没有进度条**：大文件接收期间会显示「接收中…」，完成后可点开。
@@ -101,7 +101,7 @@ npm run e2e:manual   # 手动 IP 模式：隔离组播后再互加设备
 npm run icon         # 重新生成应用图标
 ```
 
-`npm run e2e` 会启动两个 TaskDrop 实例（数据目录 `/tmp/taskdrop-e2e-a|b`，端口 47831/47832），自动验证：
+`npm run e2e` 会启动两个 DTask 实例（数据目录 `/tmp/dtask-e2e-a|b`，端口 47831/47832），自动验证：
 
 1. 双向发现
 2. 界面创建草稿

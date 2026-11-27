@@ -11,12 +11,12 @@ import type { AppState, Attachment, Device, SelfInfo, Task, TaskInput, TaskStatu
 const ONLINE_TTL = 12000
 const dataDir = process.env.TASKPUSH_DATA_DIR
   ? path.resolve(process.env.TASKPUSH_DATA_DIR)
-  : path.join(app.getPath('appData'), 'TaskDrop')
+  : path.join(app.getPath('appData'), 'DTask')
 
 app.setPath('userData', dataDir)
-app.setName('TaskDrop')
+app.setName('DTask')
 nativeTheme.themeSource = 'light'
-if (process.platform === 'win32') app.setAppUserModelId('com.taskdrop.app')
+if (process.platform === 'win32') app.setAppUserModelId('com.dtask.app')
 
 if (!process.env.TASKPUSH_ALLOW_MULTI) {
   const gotLock = app.requestSingleInstanceLock()
@@ -117,7 +117,7 @@ async function probePeer(ip: string, port: number): Promise<PeerSeen> {
   const res = await fetch(url, { signal: AbortSignal.timeout(3000) })
   if (!res.ok) throw new Error(`对方没有响应（HTTP ${res.status}）`)
   const identity = (await res.json()) as { deviceId?: string; name?: string; platform?: string; port?: number }
-  if (!identity.deviceId) throw new Error('对方不是 TaskDrop 设备')
+  if (!identity.deviceId) throw new Error('对方不是 DTask 设备')
   return {
     deviceId: identity.deviceId,
     name: identity.name || '未知设备',
@@ -215,7 +215,7 @@ function createWindow(): void {
     minWidth: 1000,
     minHeight: 640,
     backgroundColor: '#f7f7f5',
-    title: 'TaskDrop',
+    title: 'DTask',
     show: false,
     webPreferences: {
       preload: path.join(__dirname, '../preload/index.js'),
@@ -353,7 +353,7 @@ async function bootstrap(): Promise<void> {
 if (process.env.TASKPUSH_ALLOW_MULTI || app.hasSingleInstanceLock()) {
   app.whenReady().then(bootstrap).catch((err) => {
     console.error('[app] bootstrap failed', err)
-    dialog.showErrorBox('TaskDrop 启动失败', String(err))
+    dialog.showErrorBox('DTask 启动失败', String(err))
     app.quit()
   })
 }

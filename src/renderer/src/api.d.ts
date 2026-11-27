@@ -1,8 +1,8 @@
-import type { TaskDropApi } from '../../preload'
+import type { DTaskApi } from '../../preload'
 
 declare global {
   interface Window {
-    api: TaskDropApi
+    api: DTaskApi
   }
 }
 

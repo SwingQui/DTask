@@ -37,8 +37,8 @@ async function waitFor(fn, timeoutMs, label) {
   }
 }
 
-const a = await launch('Mac-A', 47831, '/tmp/taskdrop-e2e-a')
-const b = await launch('Win-B', 47832, '/tmp/taskdrop-e2e-b')
+const a = await launch('Mac-A', 47831, '/tmp/dtask-e2e-a')
+const b = await launch('Win-B', 47832, '/tmp/dtask-e2e-b')
 
 try {
   const pa = await a.firstWindow()

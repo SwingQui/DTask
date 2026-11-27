@@ -7,8 +7,8 @@ const root = process.cwd()
 const artifacts = path.join(root, '.artifacts')
 fs.mkdirSync(artifacts, { recursive: true })
 
-const DIR_A = '/tmp/taskdrop-e2e-a'
-const DIR_B = '/tmp/taskdrop-e2e-b'
+const DIR_A = '/tmp/dtask-e2e-a'
+const DIR_B = '/tmp/dtask-e2e-b'
 
 function launch(name, port, dataDir, fresh) {
   if (fresh) {

@@ -1,5 +1,5 @@
 {
-  "name": "taskdrop",
+  "name": "dtask",
   "version": "0.1.0",
   "description": "局域网任务投递：把任务拖到同事设备上",
   "main": "./out/main/index.js",
@@ -36,8 +36,8 @@
     "vite": "^8.3.8"
   },
   "build": {
-    "appId": "com.taskdrop.app",
-    "productName": "TaskDrop",
+    "appId": "com.dtask.app",
+    "productName": "DTask",
     "directories": {
       "output": "dist",
       "buildResources": "build"
@@ -57,7 +57,7 @@
       "identity": null
     },
     "dmg": {
-      "title": "TaskDrop ${version}"
+      "title": "DTask ${version}"
     },
     "win": {
       "target": [
@@ -70,7 +70,7 @@
       "perMachine": false,
       "allowToChangeInstallationDirectory": true,
       "createDesktopShortcut": true,
-      "shortcutName": "TaskDrop"
+      "shortcutName": "DTask"
     }
   }
 }

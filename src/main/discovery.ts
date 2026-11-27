@@ -43,7 +43,7 @@ export class Discovery extends EventEmitter {
         } catch {
           return
         }
-        if (packet.app !== 'taskdrop') return
+        if (packet.app !== 'dtask') return
         if (packet.deviceId === this.identity().deviceId) return
 
         if (packet.type === 'probe') {
@@ -81,7 +81,7 @@ export class Discovery extends EventEmitter {
 
   announce(): void {
     const packet: AnnouncePacket = {
-      app: 'taskdrop',
+      app: 'dtask',
       type: 'announce',
       ...this.identity(),
       ts: Date.now()
@@ -91,7 +91,7 @@ export class Discovery extends EventEmitter {
 
   sendProbe(): void {
     const packet: AnnouncePacket = {
-      app: 'taskdrop',
+      app: 'dtask',
       type: 'probe',
       ...this.identity(),
       ts: Date.now()

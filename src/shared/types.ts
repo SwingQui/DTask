@@ -71,7 +71,7 @@ export interface PeerIdentity {
 }
 
 export interface AnnouncePacket {
-  app: 'taskdrop'
+  app: 'dtask'
   type: 'announce' | 'probe'
   deviceId: string
   name: string

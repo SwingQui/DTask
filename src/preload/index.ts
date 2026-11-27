@@ -34,4 +34,4 @@ const api = {
 
 contextBridge.exposeInMainWorld('api', api)
 
-export type TaskDropApi = typeof api
+export type DTaskApi = typeof api

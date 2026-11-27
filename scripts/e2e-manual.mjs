@@ -4,8 +4,8 @@ import path from 'node:path'
 import assert from 'node:assert/strict'
 
 const root = process.cwd()
-const DIR_A = '/tmp/taskdrop-manual-a'
-const DIR_B = '/tmp/taskdrop-manual-b'
+const DIR_A = '/tmp/dtask-manual-a'
+const DIR_B = '/tmp/dtask-manual-b'
 
 function launch(name, httpPort, discoveryPort, dataDir) {
   fs.rmSync(dataDir, { recursive: true, force: true })
